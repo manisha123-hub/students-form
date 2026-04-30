@@ -3,7 +3,7 @@ import mysql.connector
 
 app = Flask(__name__)
 
-#-- ❌ Global connection (same as your old approach)
+#---- ❌ Global connection (same as your old approach)
 conn = mysql.connector.connect(
     host="database-2.czumyw0wsosf.eu-north-1.rds.amazonaws.com",
     user="admin",
