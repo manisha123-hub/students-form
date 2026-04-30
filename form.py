@@ -23,12 +23,12 @@ def student_form():
 def add_student():
     roll = request.form['roll']
     name = request.form['name']
-    student_class = request.form['class']
+    class = request.form['class']
     marks = request.form['marks']
 
     cursor.execute(
         "INSERT INTO students (roll_number, name, class, marks) VALUES (%s, %s, %s, %s)",
-        (roll, name, student_class, marks)
+        (name, roll, class, marks)
     )
     conn.commit()
 
