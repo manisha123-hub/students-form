@@ -3,11 +3,11 @@ import mysql.connector
 
 app = Flask(__name__)
 
-# ❌ Global connection (same as your old approach)
+#-- ❌ Global connection (same as your old approach)
 conn = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="negi123",
+    host="database-2.czumyw0wsosf.eu-north-1.rds.amazonaws.com",
+    user="admin",
+    password="manishanegi123",
     database="students_data"
 )
 
@@ -22,9 +22,9 @@ def student_form():
 @app.route("/add", methods=['POST'])
 def add_student():
     conn = mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password="negi123",
+        host="database-2.czumyw0wsosf.eu-north-1.rds.amazonaws.com",
+        user="admin",
+        password="manishanegi123",
         database="students_data"
     )
     cursor = conn.cursor()
@@ -47,9 +47,9 @@ def add_student():
 @app.route('/students')
 def show_students():
     conn = mysql.connector.connect(
-       host="localhost",
-        user="root",
-        password="negi123",
+       host="database-2.czumyw0wsosf.eu-north-1.rds.amazonaws.com",
+        user="admin",
+        password="manishanegi123",
         database="students_data"
     )
     cursor = conn.cursor()
