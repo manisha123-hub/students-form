@@ -19,7 +19,7 @@ def student_form():
     return render_template("form.html")
 
 # ➕ Add student
-@app.route('/add_student', methods=['POST'])
+@app.route("/add", methods=['POST'])
 def add_student():
     roll = request.form['roll']
     name = request.form['name']
