@@ -21,6 +21,14 @@ def student_form():
 # ➕ Add student
 @app.route("/add", methods=['POST'])
 def add_student():
+    conn = mysql.connector.connect(
+        host="localhost",
+        user="root",
+        password="negi123",
+        database="students_data"
+    )
+    cursor = conn.cursor()
+
     roll = request.form['roll']
     name = request.form['name']
     student_class = request.form['class']
@@ -28,22 +36,32 @@ def add_student():
 
     cursor.execute(
         "INSERT INTO students (roll_number, name, class, marks) VALUES (%s, %s, %s, %s)",
-        (name, roll, student_class, marks)
+        (roll, name, student_class, marks)
     )
     conn.commit()
+    
 
     return redirect(url_for('show_students'))
 
 # 📄 Show data
 @app.route('/students')
 def show_students():
+    conn = mysql.connector.connect(
+       host="localhost",
+        user="root",
+        password="negi123",
+        database="students_data"
+    )
+    cursor = conn.cursor()
+
     cursor.execute("SELECT * FROM students")
     data = cursor.fetchall()
+    
+    conn.close()
 
-    print("DATA FROM DB:", data)  # 🔥 debug
+    print("DATA FROM DB:", data)
 
     return render_template("h.html", students=data)
-
 # ▶️ Run
 if __name__ == "__main__":
     app.run(debug=True)
