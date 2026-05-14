@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 #---- ❌ Global connection (same as your old approach)
 conn = mysql.connector.connect(
-    host="database-2.czumyw0wsosf.eu-north-1.rds.amazonaws.com",
+    host="database-1.czumyw0wsosf.eu-north-1.rds.amazonaws.co",
     user="admin",
     password="manishanegi123",
     database="students_data"
@@ -22,7 +22,7 @@ def student_form():
 @app.route("/add", methods=['POST'])
 def add_student():
     conn = mysql.connector.connect(
-        host="database-2.czumyw0wsosf.eu-north-1.rds.amazonaws.com",
+        host="database-1.czumyw0wsosf.eu-north-1.rds.amazonaws.com",
         user="admin",
         password="manishanegi123",
         database="students_data"
